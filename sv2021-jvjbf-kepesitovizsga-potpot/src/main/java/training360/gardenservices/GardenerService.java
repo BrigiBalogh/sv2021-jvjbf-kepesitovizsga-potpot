@@ -70,8 +70,8 @@ public class GardenerService {
         Gardenwork gardenwork = gardenworkRepository.findById(gardenWorkId)
                 .orElseThrow(() -> new GardenerException("gardenworks/gardenwork-not-found", "Garden work not found", Status.NOT_FOUND));
         gardenwork.setDone(true);
+        gardenwork.setDescription();
         gardenwork.setAnswer(command.getAnswer());
-
         return mapper.map(gardenwork, Gardenwork.class);
 
     }
